@@ -12,13 +12,14 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use("/api/tasks", taskRouter);
 
 // Routes
 app.get("/", (req, res) => {
     res.send("To-Do Backend is running");
 });
 
-app.use("/api/tasks", taskRouter);
+
 
 // Start server after database connection
 async function startServer() {
